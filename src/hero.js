@@ -8,19 +8,18 @@ const Quote =
 
 const Split = e => e.split("");
 
-const variants = {
+const variants = delay => ({
   full: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+    transition: { staggerChildren: 0.05, delayChildren: delay }
   },
   empty: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 }
   }
-};
+});
 const itemsVariants = {
   full: {
     y: 0,
     opacity: 1,
-
     transition: { y: { stiffness: 1000, velocity: -100 } }
   },
   empty: {
@@ -46,10 +45,10 @@ export default function Hero({ delay, ...props }) {
     <Container {...props}>
       <Stack space={3}>
         <motion.div
-          variants={variants}
+          variants={variants(delay)}
           initial="empty"
           animate="full"
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delayChildren: 5 }}
           style={{ width: "100%", maxWidth: 477 }}
         >
           {Split(Quote).map((item, i) => (
@@ -59,11 +58,11 @@ export default function Hero({ delay, ...props }) {
         <Box>
           <Devider />
           <div>
-            <P {...ParagraphProps(delay)}>
+            <P {...ParagraphProps(delay + 1)}>
               We’re based in
               <b> Tangier, Morocco</b>
             </P>
-            <P {...ParagraphProps(delay)}>
+            <P {...ParagraphProps(delay + 1)}>
               We create
               <b> digital products </b>
               in the web

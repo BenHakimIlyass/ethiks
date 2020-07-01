@@ -12,7 +12,7 @@ export default function App() {
     <div style={{ position: "relative" }}>
       <Nav loaded={loaded} isBlack />
       <AnimatedHero toggle={toggle} loaded={loaded} />
-      {loaded && <Hero delay={4} />}
+      {loaded && <Hero delay={3} />}
     </div>
   );
 }
