@@ -4,10 +4,10 @@ import styled from "styled-components";
 import Nav from "./nav";
 import { motion } from "framer-motion";
 import AnimatedHero from "./animatedHero";
-import Hero from "./hero";
+import Hero from "./hero/";
 
 export default function App() {
-  const [loaded, toggle] = React.useState(false);
+  const [loaded, toggle] = React.useState(true);
   return (
     <div style={{ position: "relative" }}>
       <Nav loaded={loaded} isBlack />

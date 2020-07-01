@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Nav({ loaded, isBlack }) {
   return (
     <Container>
-      <Header
+      <Wrapper
         animate={{
           clipPath: loaded ? "inset(100% 0 0 0)" : "inset(100% 0 0 0)"
         }}
@@ -32,11 +32,11 @@ export default function Nav({ loaded, isBlack }) {
             <Link isBlack={isBlack}>Contact</Link>
           </Box>
         )}
-      </Header>
+      </Wrapper>
     </Container>
   );
 }
-const Header = styled.nav`
+const Wrapper = styled.nav`
   height: 35px;
   width: 100%;
   display: flex;
@@ -52,12 +52,6 @@ const Logo = styled(motion.h1)`
   color: ${props => (props.isBlack ? "#102a43" : "#fff")};
   span {
     color: #829ab1;
-  }
-  &:hover {
-    color: ${props => (!props.isBlack ? "#102a43" : "#829ab1")};
-    span {
-      color: #102a43;
-    }
   }
 `;
 const Link = styled.button`
