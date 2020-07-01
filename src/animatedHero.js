@@ -22,7 +22,9 @@ export default function AnimatedHero({ loaded, toggle }) {
         ease
       }}
     >
-      <AnimateSharedLayout transition={{ duration: 2 }}>
+      <AnimateSharedLayout
+        transition={{ duration: 2, ease: [0.2, 0.05, -0.01, 0.9] }}
+      >
         <Nav loaded={loaded} />
         <Logo loaded={loaded} onClick={() => toggle(!loaded)} />
       </AnimateSharedLayout>
