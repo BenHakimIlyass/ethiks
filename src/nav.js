@@ -17,7 +17,7 @@ export default function Nav({ loaded, isBlack }) {
         <AnimatePresence>
           {loaded && (
             <Logo layoutId="logo" animate isBlack={isBlack}>
-              <span style={{ color: "#9FB3C8" }}>.Ethi</span>ks
+              <span>.Ethi</span>ks
             </Logo>
           )}
         </AnimatePresence>
@@ -50,6 +50,15 @@ const Logo = styled(motion.h1)`
   text-align: left;
   font-family: "Inter", sans-serif;
   color: ${props => (props.isBlack ? "#102a43" : "#fff")};
+  span {
+    color: #829ab1;
+  }
+  &:hover {
+    color: ${props => (!props.isBlack ? "#102a43" : "#829ab1")};
+    span {
+      color: #102a43;
+    }
+  }
 `;
 const Link = styled.button`
   font-size: 18px;
