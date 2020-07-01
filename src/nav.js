@@ -17,7 +17,7 @@ export default function Nav({ loaded, isBlack }) {
         <AnimatePresence>
           {loaded && (
             <Logo layoutId="logo" animate isBlack={isBlack}>
-              .Ethiks
+              <span style={{ color: "#9FB3C8" }}>.Ethi</span>ks
             </Logo>
           )}
         </AnimatePresence>

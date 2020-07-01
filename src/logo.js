@@ -14,20 +14,25 @@ export default function Logo({ loaded, ...props }) {
             animate
             transition={{ duration: 2, ease }}
           >
-            .Ethiks
+            <span style={{ color: "#9FB3C8" }}>.Ethi</span>ks
           </Brand>
         )}
       </AnimatePresence>
-      <Loading
+      <motion.div
         animate={{
-          opacity: loaded ? 0 : 0.6,
+          opacity: loaded ? 0 : 0.2,
           transitionEnd: {
             display: loaded ? "none" : "block"
           }
         }}
       >
-        Loading...
-      </Loading>
+        <Loading
+          animate={{ opacity: 1 }}
+          transition={{ from: 0, flip: Infinity, duration: 1 }}
+        >
+          Loading...
+        </Loading>
+      </motion.div>
     </Wrapper>
   );
 }
@@ -49,7 +54,7 @@ const Loading = styled(motion.div)`
   font-weight: 400;
   font-family: "Inter", sans-serif;
   text-align: center;
-  color: white;
+  color: #bcccdc;
   position: absolute;
-  top: ${window.innerHeight / 2 + 16}px;
+  top: ${window.innerHeight / 2 + 22}px;
 `;
