@@ -82,10 +82,10 @@ export default function Hero({ delay, ...props }) {
           <Circle
             drag
             dragConstraints={{
-              left: 0,
-              top: 0,
+              left: 10,
+              top: 10,
               bottom: 0,
-              right: 1
+              right: 0
             }}
             dragMomentum={false}
             dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
