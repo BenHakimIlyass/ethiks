@@ -12,7 +12,7 @@ export default function Logo({ loaded, ...props }) {
             layoutId="logo"
             height={window.innerHeight / 2.5}
             animate
-            transition={{ duration: 2, ease }}
+            transition={{ duration: 1, ease }}
           >
             <span style={{ color: "#9FB3C8" }}>.Ethi</span>ks
           </Brand>

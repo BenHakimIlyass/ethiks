@@ -49,13 +49,13 @@ const Logo = styled(motion.h1)`
   width: 80px;
   text-align: left;
   font-family: "Inter", sans-serif;
-  color: ${props => (props.isBlack ? "#000" : "#fff")};
+  color: ${props => (props.isBlack ? "#102a43" : "#fff")};
 `;
 const Link = styled.button`
   font-size: 18px;
   border: none;
   background-color: transparent;
-  color: ${props => (props.isBlack ? "#000" : "#fff")};
+  color: ${props => (props.isBlack ? "#102a43" : "#fff")};
 `;
 const Box = styled(motion.div)`
   display: flex;
