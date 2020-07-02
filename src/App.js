@@ -1,13 +1,19 @@
 import React from "react";
 import "./styles.css";
-import styled from "styled-components";
 import Nav from "./nav";
-import { motion } from "framer-motion";
 import AnimatedHero from "./animatedHero";
 import Hero from "./hero/";
 
 export default function App() {
-  const [loaded, toggle] = React.useState(true);
+  const [loaded, toggle] = React.useState(false);
+
+  React.useEffect(() => {
+    let time = setTimeout(() => {
+      toggle(true);
+    }, 3000);
+    return () => clearTimeout(time);
+  }, []);
+
   return (
     <div style={{ position: "relative" }}>
       <Nav loaded={loaded} isBlack />

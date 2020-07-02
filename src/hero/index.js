@@ -2,43 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Stack from "../utils/stack";
+import Fences from "./Fences";
+import { variants, itemsVariants, ParagraphProps } from "./variants";
+
 const Quote =
   "We’re a team who like to solve problems creatively using code and design.";
-
 const Split = e => e.split("");
 
-const variants = delay => ({
-  full: {
-    transition: { staggerChildren: 0.05, delayChildren: delay }
-  },
-  empty: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-  }
-});
-const itemsVariants = {
-  full: {
-    y: 0,
-    opacity: 1,
-    transition: { y: { stiffness: 1000, velocity: -100 } }
-  },
-  empty: {
-    y: 100,
-    opacity: 0,
-
-    transition: {
-      y: { stiffness: 1000 }
-    }
-  }
-};
-const ParagraphProps = delay => ({
-  initial: "hidden",
-  animate: "visible",
-  transition: { duration: 1, delay },
-  variants: {
-    visible: { x: 0, opacity: 1 },
-    hidden: { x: -40, opacity: 0 }
-  }
-});
 export default function Hero({ delay, ...props }) {
   return (
     <Container {...props}>
@@ -69,29 +39,8 @@ export default function Hero({ delay, ...props }) {
           </div>
         </Box>
       </Stack>
-      <motion.div
-        variants={{
-          hide: { opacity: 0 },
-          show: { opacity: 1 }
-        }}
-        transition={{ duration: 1, delay: delay + 2 }}
-        initial="hide"
-        animate="show"
-      >
-        <SvgBox>
-          <Circle
-            drag
-            dragConstraints={{
-              left: 10,
-              top: 10,
-              bottom: 0,
-              right: 0
-            }}
-            dragMomentum={false}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
-          />
-        </SvgBox>
-      </motion.div>
+
+      <Fences delay={delay} />
     </Container>
   );
 }
@@ -134,17 +83,4 @@ const Container = styled.div`
   transform: translate3d(0px, 160px, 0);
   display: flex;
   justify-content: space-between;
-`;
-const SvgBox = styled(motion.div)`
-  transform: translate3d(0px, -20px, 0);
-  width: 263px;
-  height: 263px;
-  background-image: linear-gradient(120.36deg, #000000 1.82%, #1f2933 100%);
-  border-radius: 60px 0px 60px 0px;
-`;
-const Circle = styled(motion.div)`
-  width: 120px;
-  height: 120px;
-  border-radius: 60px;
-  background-image: linear-gradient(206.04deg, #bcccdc -15.21%, #f0f4f8 82.83%);
 `;
